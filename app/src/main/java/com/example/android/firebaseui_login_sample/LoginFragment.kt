@@ -67,7 +67,9 @@ class LoginFragment : Fragment() {
 
         navController = findNavController()
 
-        // TODO Handle back button actions by bringing the user back to the MainFragment.
+        requireActivity().onBackPressedDispatcher.addCallback(viewLifecycleOwner) {
+            navController.navigate(R.id.mainFragment)
+        }
 
         // TODO Observe the authenticationState and navigate the user back to SettingsFragment when
         //  they are successfully authenticated.
